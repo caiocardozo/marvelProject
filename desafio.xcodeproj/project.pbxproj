@@ -26,6 +26,10 @@
 		4C0F43952A735C0F00704648 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F43942A735C0F00704648 /* BaseView.swift */; };
 		4C0F43972A735C9700704648 /* HasCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F43962A735C9700704648 /* HasCustomView.swift */; };
 		4C0F439A2A735D2100704648 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F43992A735D2100704648 /* HomeViewModel.swift */; };
+		4C9ECF502A74A3760040E1ED /* ComicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9ECF4F2A74A3760040E1ED /* ComicTableViewCell.swift */; };
+		4C9ECF532A74A3D20040E1ED /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9ECF522A74A3D20040E1ED /* CustomTableViewCell.swift */; };
+		4C9ECF572A74A9170040E1ED /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9ECF562A74A9170040E1ED /* BaseViewModel.swift */; };
+		4C9ECF592A74ACAE0040E1ED /* CustomUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9ECF582A74ACAE0040E1ED /* CustomUIViewController.swift */; };
 		C54A43A23234D026A4E6BD29 /* Pods_desafio_desafioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0C11B67E8FEA1A15693C59 /* Pods_desafio_desafioUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +74,10 @@
 		4C0F43942A735C0F00704648 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		4C0F43962A735C9700704648 /* HasCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCustomView.swift; sourceTree = "<group>"; };
 		4C0F43992A735D2100704648 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4C9ECF4F2A74A3760040E1ED /* ComicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicTableViewCell.swift; sourceTree = "<group>"; };
+		4C9ECF522A74A3D20040E1ED /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		4C9ECF562A74A9170040E1ED /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		4C9ECF582A74ACAE0040E1ED /* CustomUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIViewController.swift; sourceTree = "<group>"; };
 		5C1084F029890A9469696FE4 /* Pods_desafioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_desafioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7011B0C3651ACA285DD12FD3 /* Pods-desafio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio.debug.xcconfig"; path = "Target Support Files/Pods-desafio/Pods-desafio.debug.xcconfig"; sourceTree = "<group>"; };
 		7E2A9FE256255DCAE959EB03 /* Pods-desafio-desafioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-desafio-desafioUITests.debug.xcconfig"; path = "Target Support Files/Pods-desafio-desafioUITests/Pods-desafio-desafioUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +227,7 @@
 		4C0F43922A735BEB00704648 /* Comuns */ = {
 			isa = PBXGroup;
 			children = (
+				4C9ECF512A74A3B90040E1ED /* Extensions */,
 				4C0F43932A735BF200704648 /* Base */,
 			);
 			path = Comuns;
@@ -229,6 +238,7 @@
 			children = (
 				4C0F43942A735C0F00704648 /* BaseView.swift */,
 				4C0F43962A735C9700704648 /* HasCustomView.swift */,
+				4C9ECF562A74A9170040E1ED /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -236,8 +246,18 @@
 		4C0F43982A735D1200704648 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4C9ECF4F2A74A3760040E1ED /* ComicTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		4C9ECF512A74A3B90040E1ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C9ECF522A74A3D20040E1ED /* CustomTableViewCell.swift */,
+				4C9ECF582A74ACAE0040E1ED /* CustomUIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		888F3FCA6F17A3F14BC128AA /* Pods */ = {
@@ -509,10 +529,14 @@
 				250BB5242A61B38D002C4113 /* ComicCell.swift in Sources */,
 				250BB5222A61B355002C4113 /* ComicItem.swift in Sources */,
 				4C0F43912A735BAF00704648 /* HomeView.swift in Sources */,
+				4C9ECF502A74A3760040E1ED /* ComicTableViewCell.swift in Sources */,
 				4C0F43952A735C0F00704648 /* BaseView.swift in Sources */,
 				4C0F438F2A735A8C00704648 /* HomeViewController.swift in Sources */,
+				4C9ECF572A74A9170040E1ED /* BaseViewModel.swift in Sources */,
 				4C0F43972A735C9700704648 /* HasCustomView.swift in Sources */,
 				25D16DB62A60B68D00B585E1 /* SceneDelegate.swift in Sources */,
+				4C9ECF532A74A3D20040E1ED /* CustomTableViewCell.swift in Sources */,
+				4C9ECF592A74ACAE0040E1ED /* CustomUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

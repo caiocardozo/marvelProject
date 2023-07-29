@@ -9,22 +9,24 @@ import UIKit
 import SnapKit
 
 final class HomeView: BaseView {
-    
-    lazy var infoLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Hello Caio"
-        label.textColor = .darkGray
-        label.font = UIFont.boldSystemFont(ofSize: 16.0)
-        return label
+   
+    var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.showsVerticalScrollIndicator = true
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.separatorColor = .clear
+        tableView.register(ComicTableViewCell.self, forCellReuseIdentifier: ComicTableViewCell.reuseIdentifier)
+        return tableView
     }()
     
     override func addViews() {
         self.backgroundColor = .white
-        self.addSubview(infoLabel)
+        self.addSubview(tableView)
     }
     override func addConstraints() {
-        infoLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
 }
