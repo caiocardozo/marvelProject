@@ -36,6 +36,8 @@ final class HomeViewController: UIViewController, HasCustomView {
         viewModel.comicsList.asObservable().bind(to: self.customView.tableView.rx.items(cellIdentifier: ComicTableViewCell.reuseIdentifier, cellType: ComicTableViewCell.self)) { _, model, cell in
             cell.setup(comicItem: model)
         }.disposed(by: self.disposeBag)
+        
+        self.customView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
     private func setupObservable() {
@@ -50,5 +52,15 @@ final class HomeViewController: UIViewController, HasCustomView {
             self.showErrorAlert(title: "Erro", message: message)
         }).disposed(by: disposeBag)
         
+        viewModel.providedBy.subscribe(onNext: { [weak self] provideBy in
+            guard let self = self else { return }
+            self.customView.setupProviderBy(provideBy: provideBy)
+        }).disposed(by: disposeBag)
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 116
     }
 }
