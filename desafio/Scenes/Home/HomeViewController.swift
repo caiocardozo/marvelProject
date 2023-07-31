@@ -19,17 +19,11 @@ final class HomeViewController: UIViewController, HasCustomView {
         let customView = CustomView()
         view = customView
     }
-    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupObservable()
         viewModel.loadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-       
     }
     
     // MARK: - Setup
@@ -39,6 +33,11 @@ final class HomeViewController: UIViewController, HasCustomView {
         }.disposed(by: self.disposeBag)
         
         self.customView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        
+        self.customView.tableView.rx.modelSelected(ComicItem.self)
+        .subscribe(onNext: { comic in
+            self.showDetail(comicItem: comic)
+        }).disposed(by: disposeBag)
     }
     
     private func setupObservable() {
@@ -57,6 +56,11 @@ final class HomeViewController: UIViewController, HasCustomView {
             guard let self = self else { return }
             self.customView.setupProviderBy(provideBy: provideBy)
         }).disposed(by: disposeBag)
+    }
+    
+    // MARK: - Actions
+    private func showDetail(comicItem: ComicItem) {
+        ComicDetailViewController.show(in: self, comicItem: comicItem)
     }
 }
 

@@ -65,7 +65,7 @@ extension UIViewController {
             }
         }
     }
-    
+
     func setLoader(loading isLoading: Bool) {
         isLoading ? self.showLoader() : self.hideLoader()
     }
@@ -73,13 +73,16 @@ extension UIViewController {
 
 extension UIViewController {
     func showErrorAlert(title: String, message: String) {
-        // create the alert
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func loadCustomCloseButton(action: Selector) {
+        let closeButton = UIButton(type: .custom)
+        closeButton.setImage(UIImage(named: "icClose"), for: .normal)
+        closeButton.addTarget(self, action: action, for: .touchUpInside)
+        let barButtonItem = UIBarButtonItem(customView: closeButton)
+        self.navigationItem.rightBarButtonItem = barButtonItem
     }
 }

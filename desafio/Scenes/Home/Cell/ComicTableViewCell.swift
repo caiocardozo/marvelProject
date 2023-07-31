@@ -17,7 +17,6 @@ final class ComicTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         return label
     }()
-    
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
@@ -25,15 +24,12 @@ final class ComicTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
-    
     private lazy var comicImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-     //   image.backgroundColor = .gray.withAlphaComponent(0.5)
         image.image = nil
         return image
     }()
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addViews()
@@ -45,18 +41,15 @@ final class ComicTableViewCell: UITableViewCell {
         self.separatorInset = UIEdgeInsets.zero
         self.layoutMargins = UIEdgeInsets.zero
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     private func addViews() {
         self.backgroundColor = .clear
         contentView.addSubview(comicImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoLabel)
     }
-    
     private func addConstraints() {
         comicImageView.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview().inset(8)
@@ -75,9 +68,7 @@ final class ComicTableViewCell: UITableViewCell {
             make.trailing.equalToSuperview().inset(8)
             make.bottom.equalTo(comicImageView.snp.bottom)
         }
-        
     }
-    
     func setup(comicItem: ComicItem) {
         titleLabel.text = comicItem.title
         infoLabel.text = comicItem.description
@@ -90,7 +81,7 @@ final class ComicTableViewCell: UITableViewCell {
         }
     }
 }
-
+// MARK: - Extension
 extension ComicTableViewCell {
     func downloadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
