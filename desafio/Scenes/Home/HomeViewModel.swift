@@ -16,15 +16,7 @@ final class HomeViewModel: BaseViewModel {
     var providedBy = BehaviorRelay<String>(value: "")
     
     func loadData() {
-        self.isLoading.onNext(true)
-        fetchMarvelData { providedBy, comicList in
-            self.isLoading.onNext(false)
-            self.providedBy.accept(providedBy ?? "")
-            self.comicsList.accept(comicList)
-        }
-    }
-    func loadData2() {
-        ComicRepository.fetchDetails { response in
+        ComicRepository.fetchComic { response in
             self.isLoading.onNext(false)
             self.providedBy.accept(response.attributionText ?? "")
             self.comicsList.accept(response.data.results ?? [])

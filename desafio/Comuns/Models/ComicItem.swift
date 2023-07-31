@@ -1,18 +1,9 @@
 struct ComicItem: Codable {
     let title: String
-    let description: String
-    var imagePath: String?
+    let description: String?
+    let thumbnail: PhotoComic
     
-    init(_ item: [String: Any]?) {
-        self.title = item?["title"] as? String ?? "Sem titulo"
-        
-        self.imagePath = nil
-        if let thumbnail = item?["thumbnail"] as? [String: Any] {
-            if let path = thumbnail["path"] as? String , let pathExtension = thumbnail["extension"] as? String {
-                self.imagePath = "\(path).\(pathExtension)"
-            }
-        }
-        
-        self.description = item?["description"] as? String ?? "Sem descrição"
+    var imagePath: String {
+        return thumbnail.pathImg + "." + thumbnail.extensionImg
     }
 }

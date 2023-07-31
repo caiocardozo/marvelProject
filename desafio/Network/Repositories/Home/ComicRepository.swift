@@ -12,8 +12,8 @@ class ComicRepository {
 
     static let url = ApiUrlBase.baseUrl + ApiComicUrl.comics
 
-    static func fetchDetails(success: @escaping (ComicsRequest) -> Void, error: @escaping (String) -> Void) {
-        NetworkManager.shared.request(url, method: .post, encoding: URLEncoding.httpBody, headers: nil) {( response: Result<ComicsRequest, NetworkErrors>) in
+    static func fetchComic(success: @escaping (ComicsRequest) -> Void, error: @escaping (String) -> Void) {
+        NetworkManager.shared.request(url, headers: nil) {( response: Result<ComicsRequest, NetworkErrors>) in
             switch response {
             case .success(let data):
                 success(data)
@@ -22,14 +22,5 @@ class ComicRepository {
             }
         }
     }
-}
-
-struct ComicsRequest: Codable {
-    var attributionText: String?
-    var data: ListDataComics
-}
-
-struct ListDataComics: Codable {
-    var results: [ComicItem]?
 }
 

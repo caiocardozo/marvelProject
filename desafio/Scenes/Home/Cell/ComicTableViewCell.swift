@@ -72,7 +72,7 @@ final class ComicTableViewCell: UITableViewCell {
     func setup(comicItem: ComicItem) {
         titleLabel.text = comicItem.title
         infoLabel.text = comicItem.description
-        if let path = comicItem.imagePath, let url = URL(string: path) {
+        if let url = URL(string: comicItem.imagePath) {
             downloadImage(from: url, completion: { image in
                 DispatchQueue.main.async {
                     self.comicImageView.image = image
