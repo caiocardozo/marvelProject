@@ -24,11 +24,12 @@ final class HomeViewController: UIViewController, HasCustomView {
         super.viewDidLoad()
         setupTableView()
         setupObservable()
+        viewModel.loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.loadData()
+       
     }
     
     // MARK: - Setup

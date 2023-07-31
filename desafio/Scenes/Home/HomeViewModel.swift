@@ -23,4 +23,15 @@ final class HomeViewModel: BaseViewModel {
             self.comicsList.accept(comicList)
         }
     }
+    func loadData2() {
+        ComicRepository.fetchDetails { response in
+            self.isLoading.onNext(false)
+            self.providedBy.accept(response.attributionText ?? "")
+            self.comicsList.accept(response.data.results ?? [])
+        } error: { error in
+            self.isLoading.onNext(false)
+            self.error.onNext(error)
+        }
+
+    }
 }

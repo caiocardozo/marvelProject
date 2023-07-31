@@ -1,4 +1,4 @@
-struct ComicItem {
+struct ComicItem: Codable {
     let title: String
     let description: String
     var imagePath: String?

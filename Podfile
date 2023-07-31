@@ -5,6 +5,7 @@ use_frameworks!
 def myPods
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
+  pod 'Alamofire'
   pod 'SnapKit', '~> 5.6.0'
 end
 
